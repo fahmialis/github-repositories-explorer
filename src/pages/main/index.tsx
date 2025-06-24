@@ -1,4 +1,5 @@
 import { Input, Collapse } from 'antd';
+import { dashboardApiHooks } from './api';
 
 export default function index() {
   const text = `
@@ -6,6 +7,11 @@ export default function index() {
   Known for its loyalty and faithfulness,
   it can be found as a welcome guest in many households across the world.
 `;
+
+  const { data } = dashboardApiHooks.useGetUserList({
+    queries: { q: 'john' },
+  });
+
   return (
     <div>
       <Input.Search placeholder="input search text" className="mb-3" />
