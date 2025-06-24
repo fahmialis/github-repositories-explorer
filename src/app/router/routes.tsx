@@ -1,4 +1,3 @@
-// import React from 'react';
 import { Outlet, Route, createRoutesFromElements } from 'react-router';
 import MainWrapper from '../ui/MainWrapper';
 
