@@ -1,10 +1,12 @@
-import React from 'react';
+// import React from 'react';
 import { Outlet, Route, createRoutesFromElements } from 'react-router';
 import MainWrapper from '../ui/MainWrapper';
 
-const Main = React.lazy(() => import('@/pages/main'));
+// const Main = React.lazy(() => import('@/pages/main'));
+// const Error = React.lazy(() => import('@/pages/error'));
 
-const Error = React.lazy(() => import('@/pages/error'));
+import Main from '@/pages/main';
+import Error from '@/pages/error';
 
 export const routes = createRoutesFromElements(
   <Route
