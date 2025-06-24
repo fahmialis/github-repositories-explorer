@@ -1,5 +1,6 @@
 import { makeEndpoint, parametersBuilder } from '@zodios/core';
 import { z } from 'zod';
+import { userSchema } from './schema/user';
 
 const getUserList = makeEndpoint({
   alias: 'getUserList',
@@ -7,12 +8,13 @@ const getUserList = makeEndpoint({
   path: 'search/users',
   parameters: parametersBuilder()
     .addQueries({
-      q: z.string().optional(),
+      q: z.string(),
     })
     .build(),
   response: z.object({
     total_count: z.number(),
     incomplete_results: z.boolean(),
+    items: z.array(userSchema),
   }),
 });
 
