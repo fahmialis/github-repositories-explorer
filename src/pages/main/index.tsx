@@ -1,8 +1,9 @@
-import { Button, Card, Collapse, Input, Spin } from 'antd';
+import { Button, Card, Collapse, Input, Spin, Tooltip } from 'antd';
 import { Fragment, useState } from 'react';
 import { dashboardApiHooks } from './api';
 import { type RepositoryItem } from './api/schema/repository';
 import { type User } from './api/schema/user';
+import { ForkOutlined, StarOutlined } from '@ant-design/icons';
 
 type ExtendedUser = User & {
   repositories?: RepositoryItem[];
@@ -93,15 +94,28 @@ export default function Main() {
                             <div className="my-2">
                               <Card
                                 key={repo.id}
-                                className='bg-gray-600'
+                                className="bg-gray-600"
                                 title={
-                                  <a
-                                    href={repo.html_url}
-                                    target="_blank"
-                                    className="cursor-pointer"
-                                  >
-                                    {repo.name}
-                                  </a>
+                                  <div className="flex justify-between items-center">
+                                    <a
+                                      href={repo.html_url}
+                                      target="_blank"
+                                      className="cursor-pointer w-3/5 truncate overflow-hidden whitespace-nowrap"
+                                    >
+                                      {repo.name}
+                                    </a>
+
+                                    <div className="flex items-center gap-2 w-1/5 justify-end">
+                                      <Tooltip title="Fork">
+                                        <ForkOutlined /> {repo.forks_count || 0}
+                                      </Tooltip>
+
+                                      <Tooltip title="Star">
+                                        <StarOutlined />{' '}
+                                        {repo.stargazers_count || 0}
+                                      </Tooltip>
+                                    </div>
+                                  </div>
                                 }
                               >
                                 {repo?.description ?? 'No Description'}
