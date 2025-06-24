@@ -93,6 +93,7 @@ export default function Main() {
                             <div className="my-2">
                               <Card
                                 key={repo.id}
+                                className='bg-gray-600'
                                 title={
                                   <a
                                     href={repo.html_url}
