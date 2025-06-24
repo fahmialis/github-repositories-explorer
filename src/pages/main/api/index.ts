@@ -4,8 +4,11 @@ import { endpoints } from './endpoints';
 
 export const dashboardApiClient = new Zodios(
   'https://api.github.com/',
-  [endpoints.getUserList],
-  { validate: true }
+  [endpoints.getUserList, endpoints.getUserRepositories],
+  {
+    validate: true,
+
+  }
 );
 
 export const dashboardApiHooks = new ZodiosHooks(
