@@ -68,6 +68,7 @@ export default function Main() {
         <Button
           onClick={() => setOnSearch(true)}
           className="min-w-full my-2.5 bg-blue-400"
+          type='primary'
         >
           Search
         </Button>
