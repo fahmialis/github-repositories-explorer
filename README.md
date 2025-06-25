@@ -87,10 +87,19 @@ pnpm build
 
 ### Testing
 
+This project uses **Vitest** and **Testing Library** for unit and integration tests.
+
 ```bash
 pnpm test          # Run tests
 pnpm coverage      # Run tests with coverage
 ```
+
+<details>
+  <summary>Test Coverage</summary>
+  <p>
+    <img src="assets/coverage.png" alt="Test Coverage" />
+  </p>
+</details>
 
 ## 📁 Project Structure
 
