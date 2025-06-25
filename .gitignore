@@ -23,3 +23,10 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# testing
+/coverage
