@@ -1,54 +1,125 @@
-# React + TypeScript + Vite
+# GitHub Repositories Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React application that integrates with the [GitHub REST API v3](https://developer.github.com/v3/) to allow users to search for GitHub usernames (up to 5 results) and explore their public repositories.
 
-Currently, two official plugins are available:
+Live Demo: [https://fahmialis.github.io/github-repositories-explorer/](https://fahmialis.github.io/github-repositories-explorer/)  
+Repository: [https://github.com/fahmialis/github-repositories-explorer](https://github.com/fahmialis/github-repositories-explorer)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- 🔍 Search GitHub users by username (max 5 results)
+- 📂 Display public repositories of selected user
+- ⚡ Fast, responsive UI built with React + TypeScript
+- 🎨 Clean UI using Ant Design and Tailwind CSS
+- 🔄 State management and data fetching via TanStack Query
+- ✅ Robust validation using Zod + Zodios
+- 📱 Fully responsive & mobile-friendly
+- 🧪 Unit testing with Vitest and Testing Library
+- 🚀 Hosted on GitHub Pages
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📸 Screenshots
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+<details>
+  <summary>🖥️ Web View</summary>
+  <p>
+    <img src="assets/image.png" alt="Web View" />
+  </p>
+</details>
+
+<details>
+  <summary>🔍 Expanded Web View</summary>
+  <p>
+    <img src="assets/image-3.png" alt="Expanded Web View" />
+  </p>
+</details>
+
+<details>
+  <summary>📱 Mobile View</summary>
+  <p>
+    <img src="assets/image-1.png" alt="Mobile View" />
+  </p>
+</details>
+
+<details>
+  <summary>🔍 Expanded Mobile View</summary>
+  <p>
+    <img src="assets/image-2.png" alt="Expanded Mobile View" />
+  </p>
+</details>
+
+## 🛠️ Tech Stack
+
+- **Framework:** [React](https://reactjs.org/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/), [Ant Design](https://ant.design/)
+- **Routing:** [React Router v7](https://reactrouter.com/)
+- **API Client:** [Axios](https://axios-http.com/), [Zodios](https://zodios.dev/)
+- **Validation:** [Zod](https://zod.dev/)
+- **State Management & Fetching:** [@tanstack/react-query](https://tanstack.com/query)
+- **Testing:** [Vitest](https://vitest.dev/), [Testing Library](https://testing-library.com/)
+- **Mocking:** [MSW (Mock Service Worker)](https://mswjs.io/)
+- **Build Tool:** [Vite](https://vitejs.dev/)
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v20 or newer)
+- pnpm (used as package manager)
+
+### Installation
+
+```bash
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+pnpm dev
+```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### Build
+
+```bash
+pnpm build
+```
+
+### Testing
+
+This project uses **Vitest** and **Testing Library** for unit and integration tests.
+
+```bash
+pnpm test          # Run tests
+pnpm coverage      # Run tests with coverage
+```
+
+<details>
+  <summary>Test Coverage</summary>
+  <p>
+    <img src="assets/coverage.png" alt="Test Coverage" />
+  </p>
+</details>
+
+## 📁 Project Structure
+
+```bash
+src/
+├── app/
+│   ├── mocks/                    # Mock handlers for MSW
+│   ├── router/                   # React Router configuration
+│   ├── test/                     # Test utilities and setup
+│   └── ui/                       # Shared layout components
+│
+├── lib/
+│   ├── axios.ts                  # Axios instance setup
+│   └── react-query.ts            # React Query config
+│
+├── pages/                        # Page-level folders (feature-based structure)
+│   └── main/
+│       ├── index.tsx             # Page component
+│       └── api/
+│           ├── schema/           # Zod schemas (request/response)
+│           └── endpoints.ts      # Zodios endpoint definitions
+
 ```

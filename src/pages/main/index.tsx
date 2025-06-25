@@ -65,6 +65,7 @@ export default function Main() {
           value={searchKey}
           onChange={(e) => setSearchKey(e?.target?.value)}
           data-testid="search-bar"
+          onKeyDown={(e) => e.key === 'Enter' && setOnSearch(true)}
         />
 
         <Button
