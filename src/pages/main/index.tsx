@@ -64,18 +64,22 @@ export default function Main() {
           className="mb-3 h-12"
           value={searchKey}
           onChange={(e) => setSearchKey(e?.target?.value)}
+          data-testid="search-bar"
         />
 
         <Button
           onClick={() => setOnSearch(true)}
           className="min-w-full my-2.5 bg-blue-400"
-          type='primary'
+          type="primary"
+          data-testid="search-button"
         >
           Search
         </Button>
 
         {submittedKey && (
-          <div className="my-4">Showing users for "{submittedKey}"</div>
+          <div className="my-4" data-testid="current-search">
+            Showing users for "{submittedKey}"
+          </div>
         )}
       </div>
 
@@ -84,6 +88,7 @@ export default function Main() {
           userData?.map((user) => (
             <div key={user.id} className="mb-5">
               <Collapse
+                data-testid="user-collapse"
                 items={[
                   {
                     key: user.id,
@@ -92,7 +97,7 @@ export default function Main() {
                       <div>
                         {user?.repositories?.length ? (
                           user?.repositories?.map((repo) => (
-                            <div className="my-2">
+                            <div className="my-2" data-testid="repo-card">
                               <Card
                                 key={repo.id}
                                 className="bg-gray-600"
@@ -148,7 +153,7 @@ export default function Main() {
             <Spin size="large" />
           </div>
         ) : (
-          submittedKey && <div>No user found</div>
+          submittedKey && <div data-testid="no-user">No user found</div>
         )}
       </div>
     </Fragment>
