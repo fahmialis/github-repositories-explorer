@@ -64,6 +64,8 @@ Repository: [https://github.com/fahmialis/github-repositories-explorer](https://
 
 ### Prerequisites
 
+> ℹ️ This project uses **pnpm@8.15.6**. You can run `corepack enable` to let Node.js automatically install and use it.
+
 - Node.js (v20 or newer)
 - pnpm (used as package manager)
 
