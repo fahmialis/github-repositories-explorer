@@ -19,7 +19,33 @@ Repository: [https://github.com/fahmialis/github-repositories-explorer](https://
 
 ## 📸 Screenshots
 
-> _Add screenshots here or link to deployed demo._
+<details>
+  <summary>🖥️ Web View</summary>
+  <p>
+    <img src="assets/image.png" alt="Web View" />
+  </p>
+</details>
+
+<details>
+  <summary>🔍 Expanded Web View</summary>
+  <p>
+    <img src="assets/image-3.png" alt="Expanded Web View" />
+  </p>
+</details>
+
+<details>
+  <summary>📱 Mobile View</summary>
+  <p>
+    <img src="assets/image-1.png" alt="Mobile View" />
+  </p>
+</details>
+
+<details>
+  <summary>🔍 Expanded Mobile View</summary>
+  <p>
+    <img src="assets/image-2.png" alt="Expanded Mobile View" />
+  </p>
+</details>
 
 ## 🛠️ Tech Stack
 
@@ -33,13 +59,12 @@ Repository: [https://github.com/fahmialis/github-repositories-explorer](https://
 - **Testing:** [Vitest](https://vitest.dev/), [Testing Library](https://testing-library.com/)
 - **Mocking:** [MSW (Mock Service Worker)](https://mswjs.io/)
 - **Build Tool:** [Vite](https://vitejs.dev/)
-- **CI/CD:** GitHub Pages for deployment
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js (v18 or newer)
+- Node.js (v20 or newer)
 - pnpm (used as package manager)
 
 ### Installation
