@@ -5,7 +5,7 @@ import MainWrapper from '../ui/MainWrapper';
 // const Error = React.lazy(() => import('@/pages/error'));
 
 import Main from '@/pages/main';
-import Error from '@/pages/error';
+import Error from '@/app/ui/Error';
 
 export const routes = createRoutesFromElements(
   <Route

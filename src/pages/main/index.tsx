@@ -1,8 +1,9 @@
-import { Button, Card, Collapse, Input, Spin } from 'antd';
+import { Button, Card, Collapse, Input, Spin, Tooltip } from 'antd';
 import { Fragment, useState } from 'react';
 import { dashboardApiHooks } from './api';
 import { type RepositoryItem } from './api/schema/repository';
 import { type User } from './api/schema/user';
+import { ForkOutlined, StarOutlined } from '@ant-design/icons';
 
 type ExtendedUser = User & {
   repositories?: RepositoryItem[];
@@ -63,17 +64,22 @@ export default function Main() {
           className="mb-3 h-12"
           value={searchKey}
           onChange={(e) => setSearchKey(e?.target?.value)}
+          data-testid="search-bar"
         />
 
         <Button
           onClick={() => setOnSearch(true)}
           className="min-w-full my-2.5 bg-blue-400"
+          type="primary"
+          data-testid="search-button"
         >
           Search
         </Button>
 
         {submittedKey && (
-          <div className="my-4">Showing users for "{submittedKey}"</div>
+          <div className="my-4" data-testid="current-search">
+            Showing users for "{submittedKey}"
+          </div>
         )}
       </div>
 
@@ -82,6 +88,7 @@ export default function Main() {
           userData?.map((user) => (
             <div key={user.id} className="mb-5">
               <Collapse
+                data-testid="user-collapse"
                 items={[
                   {
                     key: user.id,
@@ -90,17 +97,31 @@ export default function Main() {
                       <div>
                         {user?.repositories?.length ? (
                           user?.repositories?.map((repo) => (
-                            <div className="my-2">
+                            <div className="my-2" data-testid="repo-card">
                               <Card
                                 key={repo.id}
+                                className="bg-gray-600"
                                 title={
-                                  <a
-                                    href={repo.html_url}
-                                    target="_blank"
-                                    className="cursor-pointer"
-                                  >
-                                    {repo.name}
-                                  </a>
+                                  <div className="flex justify-between items-center">
+                                    <a
+                                      href={repo.html_url}
+                                      target="_blank"
+                                      className="cursor-pointer w-3/5 truncate overflow-hidden whitespace-nowrap"
+                                    >
+                                      {repo.name}
+                                    </a>
+
+                                    <div className="flex items-center gap-2 w-1/5 justify-end">
+                                      <Tooltip title="Fork">
+                                        <ForkOutlined /> {repo.forks_count || 0}
+                                      </Tooltip>
+
+                                      <Tooltip title="Star">
+                                        <StarOutlined />{' '}
+                                        {repo.stargazers_count || 0}
+                                      </Tooltip>
+                                    </div>
+                                  </div>
                                 }
                               >
                                 {repo?.description ?? 'No Description'}
@@ -132,7 +153,7 @@ export default function Main() {
             <Spin size="large" />
           </div>
         ) : (
-          submittedKey && <div>No user found</div>
+          submittedKey && <div data-testid="no-user">No user found</div>
         )}
       </div>
     </Fragment>
